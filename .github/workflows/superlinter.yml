@@ -2,9 +2,9 @@ name: Super-Linter
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   lint:
@@ -20,5 +20,5 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_ALL_CODEBASE: false   # hanya cek file yang berubah
-          FILTER_REGEX_EXCLUDE: ".*(node_modules|.git|.github/workflows).*"
+          VALIDATE_ALL_CODEBASE: false  # hanya cek file yang berubah
+          FILTER_REGEX_EXCLUDE: ".*(node_modules|\\.git|\\.github/workflows).*"
