@@ -22,4 +22,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false   # hanya cek file yang berubah
           FILTER_REGEX_EXCLUDE: ".*(node_modules|.git|.github/workflows).*"
-
