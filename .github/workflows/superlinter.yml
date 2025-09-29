@@ -2,18 +2,24 @@ name: Super-Linter
 
 on:
   push:
-    branches: [ master ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  super-lint:
-    name: Lint code base
+  lint:
+    name: Run Super-Linter
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run Super-Linter
-        uses: super-linter/super-linter@v5
+        uses: github/super-linter/slim@v5
         env:
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false   # hanya cek file yang berubah
+          FILTER_REGEX_EXCLUDE: ".*(node_modules|.git|.github/workflows).*"
+
